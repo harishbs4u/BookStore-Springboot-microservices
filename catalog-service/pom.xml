@@ -29,6 +29,7 @@
 	<properties>
 		<java.version>21</java.version>
 		<spotless-maven-plugin.version>2.46.1</spotless-maven-plugin.version>
+		<dockerImageName>harishbs4u/bookstore-${project.artifactId}</dockerImageName>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -145,6 +146,10 @@
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
+					<image>
+						<name>${dockerImageName}</name>
+						<builder>dashaun/builder:tiny</builder>
+					</image>
 				</configuration>
 			</plugin>
 			<plugin>
